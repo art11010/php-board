@@ -1,0 +1,67 @@
+label {
+    display: block;
+}
+
+input,
+textarea {
+    all: unset;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+    border: 1px solid #d00bf2;
+}
+
+a,
+button {
+    all: unset;
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 15px;
+    background-color: #fff7d0;
+    cursor: pointer;
+}
+
+table {
+    padding-bottom: 30px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+th {
+    padding: 20px 15px;
+    font-weight: 600;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    color: #333;
+    border-bottom: 1px solid #fbe4ff;
+}
+
+.thead {
+    background-color: #fbe4ff;
+}
+
+.tbody {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    all: unset;
+    cursor: pointer;
+}
+.title:hover {
+    border-bottom: 1px solid #d00bf2;
+}
+/* 
+.modify {
+    margin-left: 10px;
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+} */
