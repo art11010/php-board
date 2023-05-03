@@ -1,16 +1,16 @@
 <!--
-1. 만약에 파라미터 idx의 값이 존재하면 데이터를 뿌려준다. -> 수정
-2. 파라미터가 없다면 등록
-- idx를 통해서 데이터를 가져온다.
-    쿼리를 짜야한다. select 조건문
-    가져온 데이터를 뿌려준다.
-- idx가 없다면 등록
-
+    1. 만약에 파라미터 idx의 값이 존재하면 데이터를 뿌려준다. -> 수정
+    2. 파라미터가 없다면 등록
+    - idx를 통해서 데이터를 가져온다.
+        쿼리를 짜야한다. select 조건문
+        가져온 데이터를 뿌려준다.
+    - idx가 없다면 등록
  -->
+
 <?php
     $idx = $_GET['idx'];
     if($idx){
-        include_once ("db.php");
+        include_once ("./db/db.php");
         $sql = "SELECT * FROM post WHERE idx = {$idx}";
         // stmh : Statement Handle
         $stmh = $pdo -> prepare($sql);
@@ -34,6 +34,7 @@
 <body>
     <form action="write_ok.php" method="post">
         <input type="hidden" name="idx" value="<?=$result['idx']?>">
+        <input type="hidden" name="type" value="edit">
         <label>
             제목
             <input type="text" name="title" value="<?=$result['title']?>">

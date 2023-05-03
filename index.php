@@ -1,4 +1,17 @@
-<?php include_once ("db.php"); ?>
+<!--
+    * php 게시판 만들기
+    1. 데이터베이스 생성 ✔️
+    2. 데이터 입력 ✔️
+    3. 데이터 출력 ✔️
+    4. 데이터 수정 ✔️
+    5. 데이터 추가 ✔️
+    6. 데이터 삭제 ✔️
+    7. 데이터 검색
+    8. 데이터 페이징
+    9. 수정, 삭제 시 비밀번호 입력
+-->
+
+<?php include_once ("./db/db.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +32,7 @@
         </colgroup>
         <thead class="thead">
             <tr>
-                <th>번호</th>
+                <th>번호22</th>
                 <th>제목</th>
                 <th>작성자</th>
                 <th>작성일</th>
@@ -35,7 +48,9 @@
             ?>
             <tr>
                 <td>
-                    <?php echo $result["idx"]; ?>
+                    <a href="view.php?idx=<?=$result['idx']?>" class="title">
+                        <?php echo $result["idx"]; ?>
+                    </a>
                 </td>
                 <td>
                     <a href="view.php?idx=<?=$result['idx']?>" class="title">
@@ -55,12 +70,3 @@
     <a href="write.php">글쓰기</a>
 </body>
 </html>
-<!-- php 게시판 만들기
-1. 데이터베이스 생성
-3. 데이터 입력
-4. 데이터 출력
-5. 데이터 수정
-6. 데이터 삭제
-7. 데이터 검색
-8. 데이터 정렬
-9. 데이터 페이징 -->

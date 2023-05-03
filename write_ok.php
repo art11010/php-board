@@ -1,18 +1,28 @@
 <?php
-    include_once ("db.php");
+    include_once ("./db/db.php");
 
     // print_r($_POST);
+
     $idx = $_POST['idx'];
     $title = $_POST['title'];
     $author = $_POST['author'];
     $content = $_POST['content'];
+    // type 1
+    // $del = $_GET['idx'];
+    // type 2
+    $type = $_POST['type'];
 
-    if($idx){
-        $sql = "UPDATE `post` SET `title` = '{$title}', `content` = '{$content}', `author` = '{$author}' WHERE `post`.`idx` = '{$idx}'";
+    if($type == "edit"){
+        $sql = "UPDATE post SET title = '{$title}', content = '{$content}', author = '{$author}' WHERE post.idx = '{$idx}'";
         $txt = "수정";
         $url = "view.php?idx={$idx}";
         $page = "게시글로";
-    }else{
+    } else if ($type == "delete"){
+        $sql = "DELETE FROM post WHERE idx = {$idx}";
+        $txt = "삭제";
+        $url = "index.php";
+        $page = "목록으로";
+    } else {
         $sql = "INSERT INTO post(title, author, content, created_at) VALUES('{$title}', '{$author}', '{$content}', current_timestamp())";
         $txt = "등록";
         $url = "index.php";

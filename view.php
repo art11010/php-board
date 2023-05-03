@@ -1,7 +1,7 @@
 <?php
     $idx = $_GET['idx'];
     if($idx){
-        include_once ("db.php");
+        include_once ("./db/db.php");
         $sql = "SELECT * FROM post WHERE idx = {$idx}";
         $stmh = $pdo -> prepare($sql);
         $stmh -> execute();
@@ -52,6 +52,14 @@
         </tbody>
     </table>
     <a href="index.php">목록</a>
-    <a href="write.php?idx=<?=$result['idx']?>" class="modify">수정</a>
+    <a href="write.php?idx=<?=$result['idx']?>">수정</a>
+    <!-- type 1 -->
+    <!-- <a href="write_ok.php?idx=<?=$result['idx']?>" data-method="delete">삭제</a> -->
+    <!-- type 2 -->
+    <form action="write_ok.php" method="post" style="display: inline-block;">
+        <input type="hidden" name="idx" value="<?=$result['idx']?>">
+        <input type="hidden" name="type" value="delete">
+        <button type='submit'>삭제</button>
+    </form>
 </body>
 </html>
