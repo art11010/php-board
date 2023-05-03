@@ -67,6 +67,10 @@
             <?php } ?>
         </tbody>
     </table>
+    <form action="search.php" method="post">
+        <input type="text" name="search" placeholder="제목을 입력하세요" style="display: inline-block;">
+        <button type="submit">검색</button>
+    </form>
     <a href="write.php">글쓰기</a>
 </body>
 </html>
