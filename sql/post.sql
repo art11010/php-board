@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- 생성 시간: 23-05-03 17:38
+-- 생성 시간: 23-05-06 18:24
 -- 서버 버전: 10.4.27-MariaDB
 -- PHP 버전: 8.2.0
 
@@ -52,7 +52,11 @@ INSERT INTO `post` (`idx`, `title`, `content`, `author`, `created_at`, `updated_
 (12, 'prepare 테스트 입니다', '접니다', '저예요', '2023-05-01', NULL),
 (13, 'prepare 테스트 입니다222', '접니다', '저예요', '2023-05-02', NULL),
 (14, '마지막 글입니다', '지금 한시', '지금 한시', '2023-05-02', NULL),
-(20, 'enqjsWO', '안녕하세요?', '이예지입니다', '2023-05-03', NULL);
+(20, 'enqjsWO', '안녕하세요?', '이예지입니다', '2023-05-03', NULL),
+(22, 'mvc,,3', 'mvc,,3', '3mvc,,', '2023-05-07', NULL),
+(23, '4mvc,,', 'mvc,,4', 'mvc,,4', '2023-05-07', NULL),
+(24, 'mvc,,1', 'mvc,,1', 'mvc,,1', '2023-05-07', NULL),
+(25, 'mvc,,2', 'mvc,,2', 'mvc,,2', '2023-05-07', NULL);
 
 --
 -- 덤프된 테이블의 인덱스
@@ -72,7 +76,7 @@ ALTER TABLE `post`
 -- 테이블의 AUTO_INCREMENT `post`
 --
 ALTER TABLE `post`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
