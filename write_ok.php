@@ -9,11 +9,17 @@
 </head>
 <body>
     <?php
+    $idx = $_POST['idx'];
+    $storedpwd = $_POST['storedpwd'];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $content = $_POST['content'];
+    $password = $_POST['password'];
     $type = $_POST['type'];
 
     require_once 'controller/Controller.php';
     $controller = new Controller();
-    $controller -> completePost();
+    $controller -> completePost($idx, $storedpwd, $title, $author, $content, $password, $type);
     ?>
 </body>
 </html>

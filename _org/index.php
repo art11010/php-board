@@ -49,19 +49,19 @@
             <tr>
                 <td>
                     <a href="view.php?idx=<?=$result['idx']?>" class="title">
-                        <?php echo $result["idx"]; ?>
+                        <?php echo $result['idx']; ?>
                     </a>
                 </td>
                 <td>
                     <a href="view.php?idx=<?=$result['idx']?>" class="title">
-                        <?php echo $result["title"]; ?>
+                        <?php echo $result['title']; ?>
                     </a>
                 </td>
                 <td>
-                    <?php echo $result["author"]; ?>
+                    <?php echo $result['author']; ?>
                 </td>
                 <td>
-                    <?php echo $result["created_at"]; ?>
+                    <?php echo $result['created_at']; ?>
                 </td>
             </tr>
             <?php } ?>

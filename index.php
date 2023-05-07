@@ -22,9 +22,12 @@
 </head>
 <body>
     <?php
+    $search_option = $_POST['search_option'];
+    $search = $_POST['search'];
+
     require_once 'controller/Controller.php';
     $controller = new Controller();
-    $controller -> listPost();
+    $controller -> listPost($search_option, $search);
     ?>
 </body>
 </html>

@@ -9,9 +9,11 @@
 </head>
 <body>
     <?php
+    $idx = $_GET['idx'];
+
     require_once 'controller/Controller.php';
     $controller = new Controller();
-    $controller -> idxPost('view');
+    $controller -> viewPost($idx);
     ?>
 </body>
 </html>

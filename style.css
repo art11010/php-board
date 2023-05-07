@@ -2,6 +2,9 @@
     outline: none;
 }
 
+body {
+    max-width: 1280px;
+}
 label {
     display: block;
 }
@@ -26,9 +29,9 @@ a,
 button {
     all: unset;
     display: inline-block;
-    padding: 0 20px;
-    height: 40px;
-    line-height: 40px;
+    padding: 10px 20px;
+    /* height: 40px;
+    line-height: 40px; */
     border-radius: 15px;
     background-color: #fff7d0;
     cursor: pointer;
@@ -66,4 +69,29 @@ td {
 }
 .title:hover {
     border-bottom: 1px solid #d00bf2;
+}
+
+.paging {
+    padding-bottom: 10px;
+    text-align: center;
+}
+.paging a {
+    padding: 7px 15px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+.paging a:hover {
+    text-decoration: underline;
+}
+.paging a.current {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.btns_wrap {
+    text-align: right;
+}
+
+.pwd {
+    width: 200px;
 }
