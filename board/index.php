@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>게시글 작성</title>
+    <title>게시글 목록</title>
 </head>
 <body>
     <?php
-    $idx = $_GET['idx'];
+    $search_option = $_POST['search_option'];
+    $search = $_POST['search'];
 
-    require_once 'controller/Controller.php';
-    $controller = new Controller();
-    $controller -> writePost($idx);
+    require_once '../controller/BoardController.php';
+    $controller = new BoardController();
+    $controller -> listPost($search_option, $search);
     ?>
 </body>
 </html>

@@ -10,24 +10,6 @@
     8. 데이터 페이징
     9. 수정, 삭제 시 비밀번호 입력
 -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <title>게시글 목록</title>
-</head>
-<body>
-    <?php
-    $search_option = $_POST['search_option'];
-    $search = $_POST['search'];
-
-    require_once 'controller/Controller.php';
-    $controller = new Controller();
-    $controller -> listPost($search_option, $search);
-    ?>
-</body>
-</html>
+<?php
+    header("Location: /board");
+?>

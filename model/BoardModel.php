@@ -1,11 +1,11 @@
 <?php
-require_once 'database/Database.php';
+require_once '../database/BoardDatabase.php';
 
-class Model {
+class BoardModel {
     private $db;
 
     public function __construct(){
-        $this -> db = Database::getInstance() -> getPdo();
+        $this -> db = BoardDatabase::getInstance() -> getPdo();
     }
 
     // stmh : Statement Handle
@@ -13,9 +13,13 @@ class Model {
     // execute() 메소드는 prepare() 메소드로 생성한 PDOStatement 객체에서 실행할 SQL 쿼리를 실행하는 역할, execute() 메소드를 실행하면 실행 결과를 가져오기 전까지는 데이터베이스와 연결이 유지
 
     // 전체 게시물 수 계산
-    public function getTotalPost() {
+    public function getTotalPost($search_option, $search) {
         // 전체 게시물 수 반환
-        $sql = "SELECT COUNT(*) AS total FROM post";
+        if(!$search){
+            $sql = "SELECT COUNT(*) AS total FROM post";
+        } else {
+            $sql = "SELECT COUNT(*) AS total FROM post WHERE {$search_option} LIKE '%{$search}%'";
+        }
         $stmt = $this -> db -> prepare($sql);
         $stmt -> execute();
         $result = $stmt -> fetch(PDO::FETCH_ASSOC);

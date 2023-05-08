@@ -1,5 +1,5 @@
 <?php
-class Database{
+class BoardDatabase{
     private static $instance = null;
     private $pdo;
 
@@ -27,7 +27,7 @@ class Database{
 
     public static function getInstance(){
         if(self::$instance == null){
-            self::$instance = new Database();
+            self::$instance = new BoardDatabase();
             // 정적 변수는 $this 대신 self 키워드를 사용
         }
         return self::$instance;

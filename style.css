@@ -77,8 +77,8 @@ td {
 }
 .paging a {
     padding: 7px 15px;
-    background-color: #eee;
     border-radius: 5px;
+    background-color: #f5f5f5;
 }
 .paging a:hover {
     text-decoration: underline;
@@ -86,6 +86,7 @@ td {
 .paging a.current {
     font-weight: 700;
     text-decoration: underline;
+    background-color: #fff7d0;
 }
 
 .btns_wrap {

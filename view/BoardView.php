@@ -1,5 +1,5 @@
 <?php
-class View{
+class BoardView{
     private $title;
     private $content;
 
@@ -13,7 +13,7 @@ class View{
 
         $this -> content = <<<HTML
             <h1>{$this -> title}</h1>
-            <form action="index.php" method="post">
+            <form action="/board/index.php" method="post">
                 <select name="search_option" id="">
                     <option value="title" {$titleSelected}>제목</option>
                     <option value="author" {$authorSelected}>작성자</option>
@@ -45,12 +45,10 @@ class View{
             $this -> content .= <<<HTML
                     <tr>
                         <td>
-                            <a href="view.php?idx={$row['idx']}" class="title">
-                                {$row['idx']}
-                            </a>
+                            {$row['idx']}
                         </td>
                         <td>
-                            <a href="view.php?idx={$row['idx']}" class="title">
+                            <a href="/board/view.php?idx={$row['idx']}" class="title">
                                 {$row['title']}
                             </a>
                         </td>
@@ -67,28 +65,28 @@ class View{
                 </tbody>
             </table>
             <div class="paging">
-                <a href="index.php?page=1">처음</a>
+                <a href="/board/index.php?page=1">처음</a>
         HTML;
         for($page = 1; $page <= $totalPage; $page++){
             if( $page == $currentPage ){
                 $this -> content .= <<<HTML
-                    <a href="index.php?page={$page}" class="current">{$page}</a>
+                    <a href="/board/index.php?page={$page}" class="current">{$page}</a>
                 HTML;
             } else {
                 $this -> content .= <<<HTML
-                    <a href="index.php?page={$page}">{$page}</a>
+                    <a href="/board/index.php?page={$page}">{$page}</a>
                 HTML;
             }
         }
         $this -> content .= <<<HTML
-                <a href="index.php?page={$totalPage}">마지막</a>
+                <a href="/board/index.php?page={$totalPage}">마지막</a>
             </div>
             <div class="btns_wrap">
-                <a href="write.php">글쓰기</a>
+                <a href="/board/write.php">글쓰기</a>
         HTML;
         if( $search ){
             $this->content .= <<<HTML
-                    <a href="index.php" style="margin-left:4px">목록으로</a>
+                    <a href="/board" style="margin-left:4px">전체보기</a>
                 </div>
             HTML;
         }
@@ -134,9 +132,9 @@ class View{
                     </tr>
                 </tbody>
             </table>
-            <a href="index.php">목록</a>
-            <a href="write.php?idx={$post['idx']}">수정</a>
-            <a href="delete.php?idx={$post['idx']}">삭제</a>
+            <a href="/board">목록</a>
+            <a href="/board/write.php?idx={$post['idx']}">수정</a>
+            <a href="/board/delete.php?idx={$post['idx']}">삭제</a>
         HTML;
 
         echo $this -> content;
@@ -153,33 +151,27 @@ class View{
 
         $this -> content = <<<HTML
             <h1>{$this -> title}</h1>
-            <form action="write_ok.php" method="post">
+            <form action="write_ok.php" method="post" onsubmit="return validateForm();">
                 <input type="hidden" name="idx" value="{$post['idx']}">
                 <input type="hidden" name="storedpwd" value="{$post['password']}">
                 {$type}
-                <label>
-                    제목
-                    <input type="text" name="title" value="{$post['title']}">
-                </label>
-                <label>
-                    작성자
-                    <input type="text" name="author" value="{$post['author']}">
-                </label>
-                <label>
-                    내용
-                    <textarea cols="30" rows="10" name="content">{$post['content']}</textarea>
-                </label>
-                <label>
-                    비밀번호
-                    <input type="password" name="password" class="pwd">
-                </label>
+                <label for="title">제목</label>
+                <input id="title" type="text" name="title" value="{$post['title']}">
+                <label for="author">작성자</label>
+                <input id="author" type="text" name="author" value="{$post['author']}">
+                <label for="content">내용</label>
+                <textarea id="content" cols="30" rows="10" name="content">{$post['content']}</textarea>
+                <label for="password">비밀번호</label>
+                <input id="password" class="pwd" type="password" name="password">
         HTML;
         if($post){
             $this -> content .= <<<HTML
+                <a href="/board/view.php?idx={$post['idx']}">게시글로</a>
                 <button type="submit">수정하기</button>
             HTML;
         } else{
             $this -> content .= <<<HTML
+                <a href="/board">목록</a>
                 <button type="submit">작성하기</button>
             HTML;
         }
@@ -203,6 +195,7 @@ class View{
                     비밀번호 확인
                     <input type="password" name="password" class="pwd">
                 </label>
+                <a href="/board/view.php?idx={$post['idx']}">게시글로</a>
                 <button type="submit">삭제하기</button>
             </form>
         HTML;
@@ -211,11 +204,13 @@ class View{
     }
 
     // 게시글 작성, 수정, 삭제 완료
-    public function showCompletePost($txt){
+    public function showCompletePost($txt, $idx = null){
+        $btnLink = !$idx ? '<a href="/board">목록</a>' : '<a href="/board/view.php?idx=' . $idx . '">게시글로</a>';
+
         $this -> title = "{$txt}";
         $this -> content = <<<HTML
             <h1>{$this -> title}</h1>
-            <a href="index.php">목록으로</a>
+            {$btnLink}
         HTML;
         echo $this -> content;
     }

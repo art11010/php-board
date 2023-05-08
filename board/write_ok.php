@@ -17,8 +17,8 @@
     $password = $_POST['password'];
     $type = $_POST['type'];
 
-    require_once 'controller/Controller.php';
-    $controller = new Controller();
+    require_once '../controller/BoardController.php';
+    $controller = new BoardController();
     $controller -> completePost($idx, $storedpwd, $title, $author, $content, $password, $type);
     ?>
 </body>

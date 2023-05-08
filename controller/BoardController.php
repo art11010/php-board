@@ -1,14 +1,14 @@
 <?php
-require_once './model/Model.php';
-require_once './view/View.php';
+require_once '../model/BoardModel.php';
+require_once '../view/BoardView.php';
 
-class Controller {
+class BoardController {
     private $model;
     private $view;
 
     public function __construct(){
-        $this -> model = new Model();
-        $this -> view = new View();
+        $this -> model = new BoardModel();
+        $this -> view = new BoardView();
     }
 
     // 게시글 목록, 검색 결과
@@ -18,7 +18,7 @@ class Controller {
         $start = ($currentPage - 1) * $perPage; // 시작 게시물 번호
 
         // 전체 게시물 수 계산
-        $total = $this -> model -> getTotalPost();
+        $total = $this -> model -> getTotalPost($search_option, $search);
         // 페이징 수 계산
         $totalPage = ceil($total / $perPage); // ceil() : 소수점 올림
 
@@ -51,10 +51,11 @@ class Controller {
 
         if($verify || !$idx) {
             $txt = $this -> model -> getCompletePost($idx, $title, $author, $content, $password, $type);
+            $this -> view -> showCompletePost($txt);
         } else {
             $txt = '비밀번호가 일치하지 않습니다.';
+            $this -> view -> showCompletePost($txt, $idx);
         }
-        $this -> view -> showCompletePost($txt);
     }
 }
 ?>
