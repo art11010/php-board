@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- 생성 시간: 23-05-07 19:06
+-- 생성 시간: 23-05-08 18:25
 -- 서버 버전: 10.4.27-MariaDB
 -- PHP 버전: 8.2.0
 
@@ -61,7 +61,9 @@ INSERT INTO `post` (`idx`, `title`, `content`, `author`, `created_at`, `password
 (36, '12', '12', '12', '2023-05-08', '$2y$10$jGgWaqQuq/iXFa4EDF4t1O00y5TpBesRR92/hYppHMnQFH3mbUWZ6'),
 (37, 'qwer', 'qwer', 'qwer', '2023-05-08', '$2y$10$yRhxk4qodKc8p8.LcT1reuyluRoVYPKquOznwUuh.lVZ8Dr0EgJHO'),
 (38, '1233', '1233', '1233', '2023-05-08', '$2y$10$O1tNrYa/T1/mkPx0.rnxFOR/wmrkK0CpD1NK/TlDhZE1n/Rghcese'),
-(39, 'asdf', 'asdf', 'asdf', '2023-05-08', '$2y$10$RaPTQzrEhmu4ahjbeIzGuuBmLMH6cjVLFKdDsdQqQ3sjH6Rygp08u');
+(39, 'asdf', 'asdf', 'asdf', '2023-05-08', '$2y$10$RaPTQzrEhmu4ahjbeIzGuuBmLMH6cjVLFKdDsdQqQ3sjH6Rygp08u'),
+(40, '12', '12', '12', '2023-05-08', '$2y$10$AR6Hal0oKqj5LPuOrxJJ1elYFP6bISBG32TlOX/ubD.WIlxAvgQBa'),
+(43, '123 Board 123', 'Board', 'Board', '2023-05-09', '$2y$10$Sg1lNJmBppMCX2LdueRGuuNGtpDyFFhx5WlP4F3zfNv2cZP4d6tYG');
 
 --
 -- 덤프된 테이블의 인덱스
@@ -81,7 +83,7 @@ ALTER TABLE `post`
 -- 테이블의 AUTO_INCREMENT `post`
 --
 ALTER TABLE `post`
-  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
